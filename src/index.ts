@@ -31,7 +31,7 @@ const handleRequest = async (req: Request, res: Response) => {
   console.log("with params ", req.query);
   const result = await main();
   if (typeof result === "boolean") {
-    return res.json({ status: result });
+    return res.send(result);
   }
   return res.json({ error: result }).status(500);
 };
