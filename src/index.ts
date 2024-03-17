@@ -1,15 +1,14 @@
 import express, { Request, Response } from "express";
 import axios from "axios";
 import { parseISO, addMinutes, isBefore } from "date-fns";
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-// Function to read ESP_KEY from a file
 const getEspKey = (): string => {
-  const filePath = path.join(__dirname, 'esp_key.txt'); // replace with your file path
-  const espKey = fs.readFileSync(filePath, 'utf-8');
+  const filePath = path.join(__dirname, "esp_key.txt"); // replace with your file path
+  const espKey = fs.readFileSync(filePath, "utf-8");
   return espKey.trim();
-}
+};
 
 const ESP_KEY = getEspKey();
 
