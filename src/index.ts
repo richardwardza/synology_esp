@@ -27,6 +27,8 @@ const app = express();
 const port = 5577;
 
 const handleRequest = async (req: Request, res: Response) => {
+  console.log("Received request from ", req.ip);
+  console.log("with params ", req.query);
   const result = await main();
   if (typeof result === "boolean") {
     return res.json({ status: result });
