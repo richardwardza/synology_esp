@@ -17,7 +17,7 @@ const CAPE_TOWN = "capetown-7-capetowncbd";
 var config = {
   method: "get",
   maxBodyLength: Infinity,
-  url: `https://developer.sepush.co.za/business/2.0/area?id=${CAPE_TOWN}&test=future`,
+  url: `https://developer.sepush.co.za/business/2.0/area?id=${CAPE_TOWN}`,
   headers: {
     token: ESP_KEY,
   },
@@ -48,6 +48,7 @@ const main = async () => {
     if (response.data.events.length === 0) {
       return false;
     } else {
+      console.log(response.data.events)
       const startString = response.data.events[0].start;
       const startDate = parseISO(startString);
       const next20Minutes = addMinutes(new Date(), 20);
